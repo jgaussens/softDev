@@ -1,4 +1,4 @@
-package main.java;
+//package main.java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +22,18 @@ public class Deck {
         return cards;
     }
     
-    public void ShuffleDeck(List<Card> lCards)
-    {
-    	return Collections.shuffle(lCards);
-    }
-    
-    public void PickCard(player, nCards)
-    {
-    	//piocher nCards(5 si en début de jeu, 1 sinon) dans le deck central pour 
-    	// le mettre dans la main du player (1 ou 2).
-    	
-    	//if nombre cards dans le deck = 1, piocher puis annoncer "EndGame()" ?
-    	//
-    	
-    }
+//    public void ShuffleDeck(List<Card> lCards)
+//    {
+//    	//return Collections.shuffle(lCards);
+//    }
+//    
+//    public void PickCard(player, nCards)
+//    {
+//    	//piocher nCards(5 si en début de jeu, 1 sinon) dans le deck central pour 
+//    	// le mettre dans la main du player (1 ou 2).
+//    	
+//    	//if nombre cards dans le deck = 1, piocher puis annoncer "EndGame()" ?
+//    	//
+//    	
+//    }
 }
