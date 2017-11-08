@@ -22,11 +22,28 @@ public class Deck {
         return cards;
     }
     
-//    public void ShuffleDeck(List<Card> lCards)
-//    {
-//    	//return Collections.shuffle(lCards);
-//    }
+    public void shuffleDeck()
+    {
+    	Collections.shuffle(this.cards);
+    }
+    
+    
+    public Card test(){
+    	
+    	return this.cards.get(this.cards.size()-1);
+    }
+    
+    public void pickCard(Gamer gamer, int nCards)
+    {
+    	
+    	
+    }
+    
+    
+    
 //    
+    
+    
 //    public void PickCard(player, nCards)
 //    {
 //    	//piocher nCards(5 si en début de jeu, 1 sinon) dans le deck central pour 
