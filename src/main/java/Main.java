@@ -25,8 +25,8 @@ public class Main {
         
         //myDeck.shuffleDeck();
         
-        gamer1.drawCard(3);
-        //System.out.println(gamer1.getHandCards());
+        gamer1.drawCard(2);
+        System.out.println("Gamer hand cards" + gamer1.getHandCards());
         
         
         
