@@ -27,8 +27,10 @@ public class Main {
         
         gamer1.drawCard(2);
         System.out.println("Gamer hand cards" + gamer1.getHandCards());
-        
-        
+        //gamer1.getHandCards().remove(gamer1.getHandCards().size() - 1);
+        //System.out.println("Gamer hand cards" + gamer1.getHandCards());
+        System.out.println("What is left in the deck" +myBoard.getDraw());
+
         
         //System.out.print("Deck after shuffle:");
         //System.out.println(myDeck.getCards());

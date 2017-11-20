@@ -33,13 +33,21 @@ public class Gamer {
     
     public void playCard(Card c)
     {
-
+    	//this.boardCards.addAll(c);
     }
     
     public void drawCard(int n)
     {
     	//System.out.println(this.board.getDraw().subList(2,3));
     	this.handCards.addAll(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
+    	// Removing from the deck the card we just drew
+    	for (int i = n; i > 0; i--)
+        {
+    		this.board.getDraw().remove(this.board.getDraw().size() - i);
+        }
     	//System.out.println(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     }
+    
+    
+    
 }
