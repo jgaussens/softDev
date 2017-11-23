@@ -11,6 +11,7 @@ public class Gamer {
     public Gamer()
     {
     	this.handCards = new ArrayList<Card>();
+    	this.boardCards = new ArrayList<Card>();
     }
     
     
@@ -19,21 +20,26 @@ public class Gamer {
     	return this.handCards;
     }
     
+    public List<Card> getBoardCards()
+    {
+    	return this.boardCards;
+    }
+    
     public void setBoard(Board board)
     {
     	this.board = board;
     }
     
-    public void drawCards(int numberOfCards)
+    
+    public void playCard(int indice)
     {
-        //  this.handCard.add(board.deck.draw(5));
-    }
 
+    //handcards vers boardCards
+    	System.out.println(this.handCards.get(indice));
+    	this.boardCards.add(this.handCards.get(indice));
+    	this.handCards.remove(indice);
+    	//activate Power of the card???????
     
-    
-    public void playCard(Card c)
-    {
-    	//this.boardCards.addAll(c);
     }
     
     public void drawCard(int n)

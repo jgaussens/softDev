@@ -18,11 +18,7 @@ public class Board {
 		this.draw = new ArrayList<Card>();
 	}
 	
-	public List<Card> getField()
-	{
-		return this.field;
-		
-	}
+
 	
 	
 }

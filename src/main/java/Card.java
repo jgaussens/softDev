@@ -10,7 +10,7 @@ public abstract class Card {
     /**
      * @Returns power of the card
      */
-    public abstract void power();
+    //public abstract void power();
 
     public abstract String toString();
 }

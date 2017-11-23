@@ -4,9 +4,10 @@ public class Gnome extends Card {
 
     public static final String NAME = "Gnome";
 
-    public void power()
+    public void power(Gamer gamer1)
     {
-        System.out.println("Draw 2 cards");
+        System.out.println("POWER: Draw 2 cards");
+        gamer1.drawCard(2);
     }
 
     public String toString()

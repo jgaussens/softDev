@@ -4,7 +4,7 @@ public class Elf extends Card {
 
     public static final String NAME = "Elf";
 
-    public void power()
+    public void power(Gamer gamer1, Gamer gamer2)
     {
         System.out.println("Copy and use the power of one of the card in front of you");
     }
