@@ -123,6 +123,8 @@ public class Main {
         //System.out.print("Deck after shuffle:");
         //System.out.println(myDeck.getCards());
         
-        //System.out.println(myBoard.getDraw().subList(myBoard.getDraw().size()-2, myBoard.getDraw().size()));
+        System.out.println(myBoard.getDraw().subList(myBoard.getDraw().size()-2, myBoard.getDraw().size()));
+        System.out.println(gamer1.getHandCards().get(1));
+
     }
 }
