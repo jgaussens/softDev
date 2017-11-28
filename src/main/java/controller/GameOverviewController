@@ -1,0 +1,24 @@
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Hashtable;
+
+public class GameOverviewController {
+
+    private static final Hashtable<Integer, String> hash_image_path = new Hashtable<Integer, String>() {{
+        put(0, "images/gnome.png");
+        put(1, "images/korrigan.png");
+        put(2, "images/goblin.png");
+        put(3, "images/elf.png");
+        put(4, "images/dryad.png");
+        put(5, "images/troll.png");
+    }};
