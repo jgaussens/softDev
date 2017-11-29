@@ -1,4 +1,4 @@
-//package main.java;
+package main.java;
 
 public abstract class Card {
 
@@ -13,4 +13,6 @@ public abstract class Card {
     //public abstract void power();
 
     public abstract String toString();
+
+    public abstract void power(Gamer gamer1, Gamer gamer2);
 }

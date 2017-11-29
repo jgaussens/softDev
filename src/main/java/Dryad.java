@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package main.java;
 
-//package main.java;
+import java.util.ArrayList;
 
 public class Dryad extends Card {
 
@@ -10,7 +10,7 @@ public class Dryad extends Card {
     public void power(Gamer gamer1, Gamer gamer2){
         //Comment choper l'indice de cette carte (self ça existe pas en C#)
     	int i = 0;
-    	while(gamer1.getHandCards().get(i) != "Dryad") // faire un toString ici pour choper là où c'est une driade
+    	while(gamer1.getHandCards().get(i).toString() != "Dryad") // faire un toString ici pour choper là où c'est une driade
     	{
     		i+=1;
     		

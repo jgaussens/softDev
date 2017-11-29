@@ -1,11 +1,12 @@
-import java.util.ArrayList;
+package main.java;
 
-//package main.java;
+import java.util.ArrayList;
 
 public class Troll extends Card {
 
     public static final String NAME = "Troll";
 
+    // swap the board cards of the opponent
     public void power(Gamer gamer1, Gamer gamer2){
         ArrayList<Card> tmpList = new ArrayList<Card>(gamer1.getBoardCards());
         gamer1.getBoardCards().clear();

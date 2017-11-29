@@ -1,4 +1,4 @@
-//package main.java;
+package main.java;
 
 public class Main {
 
@@ -87,19 +87,19 @@ public class Main {
         gamer2.playCard(1);
         System.out.println("Gamer2 hand cards after playing a card" + gamer2.getHandCards());
         System.out.println("Board of the gamer2" + gamer2.getBoardCards());
-        
-        
+
+
         System.out.println("\n");
         System.out.println("Testing Cards power independently");
-        
+
         //Test Gnome:
         System.out.println("Gamer1 hand cards Before Gnome Effect" + gamer1.getHandCards());
         System.out.println("TestGnome activating power for Gamer1");
-        gnome1.power(gamer1);
+        gnome1.power(gamer1, gamer2);
         System.out.println("Gamer1 hand cards after gnome effect" + gamer1.getHandCards());
 
-        
-        
+
+
         //Test Goblin
         System.out.println("\n");
         System.out.println("Gamer1 hand cards Before Goblin Effect" + gamer1.getHandCards());
@@ -119,12 +119,19 @@ public class Main {
         System.out.println("Gamer1 board cards after Troll effect" + gamer1.getBoardCards());
         System.out.println("Gamer2 board cards after Troll effect" + gamer2.getBoardCards());
 
-        
+
         //System.out.print("Deck after shuffle:");
         //System.out.println(myDeck.getCards());
-        
+
         System.out.println(myBoard.getDraw().subList(myBoard.getDraw().size()-2, myBoard.getDraw().size()));
         System.out.println(gamer1.getHandCards().get(1));
+
+        System.out.println(gamer2.getBoardCards());
+        System.out.println(gamer2.getHandCards());
+        gamer2.playCard(0);
+        gamer2.getBoardCards().get(0).power(gamer2, gamer1);
+        System.out.println(gamer2.getBoardCards());
+        gamer2.getBoardCards().get(0).power(gamer2, gamer1);
 
     }
 }
