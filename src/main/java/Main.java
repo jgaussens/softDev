@@ -126,12 +126,26 @@ public class Main {
         System.out.println(myBoard.getDraw().subList(myBoard.getDraw().size()-2, myBoard.getDraw().size()));
         System.out.println(gamer1.getHandCards().get(1));
 
+        // Test Elf power
         System.out.println(gamer2.getBoardCards());
         System.out.println(gamer2.getHandCards());
         gamer2.playCard(0);
         gamer2.getBoardCards().get(0).power(gamer2, gamer1);
         System.out.println(gamer2.getBoardCards());
         gamer2.getBoardCards().get(0).power(gamer2, gamer1);
+
+        // Test Korrigan power
+        System.out.println(gamer1.getHandCards());
+        gamer1.playCard(0);
+        System.out.println(gamer1.getBoardCards());
+        System.out.println("Before Korrigan's power :");
+        System.out.println("Gamer 1 hand : " + gamer1.getHandCards());
+        System.out.println("Gamer 2 hand : " + gamer2.getHandCards());
+        gamer1.getBoardCards().get(1).power(gamer1, gamer2); // Activates power of the korrigan card
+        System.out.println("After Korrigan's power :");
+        System.out.println("Gamer 1 hand : " + gamer1.getHandCards());
+        System.out.println("Gamer 2 hand : " + gamer2.getHandCards());
+
 
     }
 }
