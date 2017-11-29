@@ -108,9 +108,9 @@ public class Main {
         goblin1.power(gamer1,gamer2);
         System.out.println("Gamer1 hand cards after gnome effect" + gamer1.getHandCards());
         System.out.println("Gamer2 hand cards after gnome effect" + gamer2.getHandCards());
-        
-        
-      //Test Troll
+
+
+        //Test Troll
         System.out.println("\n");
         System.out.println("Gamer1 board cards Before Troll Effect" + gamer1.getBoardCards());
         System.out.println("Gamer2 board cards Before Troll Effect" + gamer2.getBoardCards());
@@ -146,6 +146,14 @@ public class Main {
         System.out.println("Gamer 1 hand : " + gamer1.getHandCards());
         System.out.println("Gamer 2 hand : " + gamer2.getHandCards());
 
-
+        // Test Dryad power
+        gamer1.playCard(1);
+        System.out.println("Before Dryad's power :");
+        System.out.println(gamer1.getBoardCards());
+        System.out.println(gamer2.getBoardCards());
+        gamer1.getBoardCards().get(2).power(gamer1, gamer2);
+        System.out.println("After Dryad's power :");
+        System.out.println(gamer1.getBoardCards());
+        System.out.println(gamer2.getBoardCards());
     }
 }
