@@ -1,5 +1,12 @@
 package main.java;
 
+
+//To do last
+// Simulation des tours / fin du jeu
+// Fin du jeu quand: deck empty + premier jour à jouer sa dernière carte. Then joueur adverse joue 1 carte et terminé
+// 1 tour = Joueur pioche 1 carte, joue 1 carte, active pouvoir de la carte jouée (ou active autant de pouvoirs que voulu????? métonnerait?
+//à la fin: +1 point pour chaque perso sur son royaume. +3 extra points si joueur a "presque" 1 individu de chaque race (cad???? pas clair).
+
 public class Main {
 
     public static void main(String[] args) {
