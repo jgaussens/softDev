@@ -5,7 +5,7 @@ public class Dryad extends Card {
 
     public static final String NAME = "Dryad";
 
-    //fonction à finir
+    //fonction à finir !
     public void power(Gamer gamer, Gamer opponent)
     {
         System.out.println("Dryad's power activated.");
