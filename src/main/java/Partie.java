@@ -1,7 +1,6 @@
 package main.java;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Partie {
 
@@ -14,7 +13,7 @@ public class Partie {
 	public Partie()
 	{
 		this.gamer1 = new Gamer();
-		this.gamer2 = new Gamer();
+		this.gamer2 = new GamerIA();
 		this.board = new Board();
 	}
 	
@@ -28,7 +27,7 @@ public class Partie {
 	public void init()
 	{	
         this.gamer1.setName("Player 1");
-        this.gamer2.setName("Player 2");
+        this.gamer2.setName("Gamer IA");
         
         gamer1.setBoard(board);
         gamer2.setBoard(board); //ça sert à quoi déjà setBoard?  => Camille ?????? Ils partagent tous les deux le même board c'est ça?

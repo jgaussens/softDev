@@ -1,7 +1,5 @@
 package main.java;
 
-import java.util.ArrayList;
-
 public class Dryad extends Card {
 
     public static final String NAME = "Dryad";
