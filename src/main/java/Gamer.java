@@ -6,19 +6,38 @@ import java.util.ArrayList;
 
 public class Gamer {
 
-    private List<Card> handCards;
+    private String name;
+    private int score;
+	private List<Card> handCards;
     private List<Card> boardCards;
-
+    
 
 
     private Board board;
 
     public Gamer()
     {
+    	this.name = "";
+    	this.handCards = new ArrayList<Card>();
+    	this.boardCards = new ArrayList<Card>();//Kingdom
+    }
+    
+    public Gamer(String name)
+    {
+    	this.name = name;
     	this.handCards = new ArrayList<Card>();
     	this.boardCards = new ArrayList<Card>();
     }
     
+    public String getName()
+    {
+    	return this.name;
+    }
+    
+    public String setName(String name)
+    {
+    	return this.name = name;
+    }
     
     public List<Card> getHandCards()
     {
@@ -62,7 +81,6 @@ public class Gamer {
         }
     	//System.out.println(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     }
-<<<<<<< HEAD
     
     public void printHand()
     {
@@ -99,7 +117,7 @@ public class Gamer {
     		System.out.println("Please make another choice !");
     		
     }
-=======
+
      @Override
     public  boolean equals(Object c){
         if (c instanceof  Object){
@@ -111,7 +129,14 @@ public class Gamer {
         }
         return false;
      }
->>>>>>> 0ec9d2adaf4a1f575d9ba0962f66cd9b7ad83cb7
+
+	public int getScore() {
+		return this.boardCards.size();
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
     
     
 }

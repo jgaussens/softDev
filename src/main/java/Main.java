@@ -10,64 +10,12 @@ package main.java;
 public class Main {
 
     public static void main(String[] args) {
-
-    	
-    	//Initialisations
-    	
-    	//Board
-        Board myBoard = new Board();
-    	
-        //Some Cards (1)
-    	Korrigan korrigan1 = new Korrigan();
-        Elf elf1 = new Elf();
-        Gnome gnome1 = new Gnome();
         
-        //Some Cards (2)
-        Dryad dryad1 = new Dryad();
-        Goblin goblin1 = new Goblin();
-        Troll troll1 = new Troll();
-        
-        //Some card(3)
-        Troll troll2 = new Troll();
-        Goblin goblin2 = new Goblin();
-        Elf elf2 = new Elf();
-        Korrigan korrigan2 = new Korrigan();
-
-        
-        
-        Gamer gamer1 = new Gamer();
-        Gamer gamer2 = new Gamer();
-
-        
-        gamer1.setBoard(myBoard);
-        gamer2.setBoard(myBoard); //ça sert à quoi déjà setBoard?  => Camille ?????? Ils partagent tous les deux le même board c'est ça?
-
-        
-        
-        //Add Some cards to the draw(1)
-        myBoard.getDraw().add(korrigan1);
-        myBoard.getDraw().add(elf1);
-        myBoard.getDraw().add(gnome1);
-        
-        //Add Some cards to the draw(2)
-        myBoard.getDraw().add(dryad1);
-        myBoard.getDraw().add(goblin1);
-        myBoard.getDraw().add(troll1);
-        
-        //Add Some cards to the draw(2)
-        myBoard.getDraw().add(troll2);
-        myBoard.getDraw().add(goblin2);
-        myBoard.getDraw().add(elf2);
-        myBoard.getDraw().add(korrigan2);
-
-
-        /***
-         * Ludo
-         */
-        
-        Partie partie = new Partie(gamer1, gamer2, myBoard);
+        Partie partie = new Partie();
+        partie.init();
         partie.roundOfGame();
         
+        /*
         
         System.out.print("Original Deck:");
         System.out.println(myBoard.getDraw());
@@ -171,5 +119,7 @@ public class Main {
         System.out.println("After Dryad's power :");
         System.out.println(gamer1.getBoardCards());
         System.out.println(gamer2.getBoardCards());
+        
+        */
     }
 }
