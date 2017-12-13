@@ -3,9 +3,9 @@ package main.java;
 
 //To do last
 // Simulation des tours / fin du jeu
-// Fin du jeu quand: deck empty + premier jour Ã  jouer sa derniÃ¨re carte. Then joueur adverse joue 1 carte et terminÃ©
-// 1 tour = Joueur pioche 1 carte, joue 1 carte, active pouvoir de la carte jouÃ©e (ou active autant de pouvoirs que voulu????? mÃ©tonnerait?
-//Ã  la fin: +1 point pour chaque perso sur son royaume. +3 extra points si joueur a "presque" 1 individu de chaque race (cad???? pas clair).
+// Fin du jeu quand: deck empty + premier jour à jouer sa dernière carte. Then joueur adverse joue 1 carte et terminé
+// 1 tour = Joueur pioche 1 carte, joue 1 carte, active pouvoir de la carte jouée (ou active autant de pouvoirs que voulu????? métonnerait?
+//à la fin: +1 point pour chaque perso sur son royaume. +3 extra points si joueur a "presque" 1 individu de chaque race (cad???? pas clair).
 
 public class Main {
 
@@ -40,8 +40,10 @@ public class Main {
 
         
         gamer1.setBoard(myBoard);
-        gamer2.setBoard(myBoard); //Ã§a sert Ã  quoi dÃ©jÃ  setBoard?  => Camille ?????? Ils partagent tous les deux le mÃªme board c'est Ã§a?
+        gamer2.setBoard(myBoard); //ça sert à quoi déjà setBoard?  => Camille ?????? Ils partagent tous les deux le même board c'est ça?
 
+        
+        
         //Add Some cards to the draw(1)
         myBoard.getDraw().add(korrigan1);
         myBoard.getDraw().add(elf1);
@@ -59,7 +61,14 @@ public class Main {
         myBoard.getDraw().add(korrigan2);
 
 
-
+        /***
+         * Ludo
+         */
+        
+        Partie partie = new Partie(gamer1, gamer2, myBoard);
+        partie.roundOfGame();
+        
+        
         System.out.print("Original Deck:");
         System.out.println(myBoard.getDraw());
         
