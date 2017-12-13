@@ -51,4 +51,15 @@ public class Elf extends Card {
     {
         return Elf.NAME;
     }
+
+    @Override
+    public  boolean equals(Object c){
+        if (c instanceof Object){
+            Elf e=(Elf) c;
+            e.copiedCard=this.copiedCard;
+            e.firstTimeUse=((Elf) c).firstTimeUse;
+            return true;
+        }
+        return false;
+    }
 }

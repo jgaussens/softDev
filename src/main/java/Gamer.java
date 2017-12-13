@@ -8,6 +8,9 @@ public class Gamer {
 
     private List<Card> handCards;
     private List<Card> boardCards;
+
+
+
     private Board board;
 
     public Gamer()
@@ -30,6 +33,10 @@ public class Gamer {
     public void setBoard(Board board)
     {
     	this.board = board;
+    }
+
+    public Board getBoard() {
+        return board;
     }
     
     public void playCard(int indice)
@@ -55,6 +62,7 @@ public class Gamer {
         }
     	//System.out.println(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     }
+<<<<<<< HEAD
     
     public void printHand()
     {
@@ -91,6 +99,19 @@ public class Gamer {
     		System.out.println("Please make another choice !");
     		
     }
+=======
+     @Override
+    public  boolean equals(Object c){
+        if (c instanceof  Object){
+            Gamer g=(Gamer) c;
+            g.board=this.board;
+            g.boardCards=this.boardCards;
+            g.handCards=this.handCards;
+            return true;
+        }
+        return false;
+     }
+>>>>>>> 0ec9d2adaf4a1f575d9ba0962f66cd9b7ad83cb7
     
     
 }

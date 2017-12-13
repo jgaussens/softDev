@@ -7,7 +7,7 @@ public class Board {
 
 	
 	private List<Card> draw; //pioche
-	private List<Gamer> gamers; //set of players
+	//private List<Gamer> gamers; //set of players
 	
 	
 	public List<Card> getDraw()
@@ -18,6 +18,16 @@ public class Board {
 	public Board()
 	{
 		this.draw = new ArrayList<Card>();
+	}
+
+	@Override
+	public boolean equals(Object c){
+		if(c instanceof Object){
+			Board b=(Board) c;
+			b.draw=this.draw;
+			return true;
+		}
+		return false;
 	}
 	
 

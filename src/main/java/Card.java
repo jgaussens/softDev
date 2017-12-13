@@ -15,4 +15,14 @@ public abstract class Card {
     public abstract String toString();
 
     public abstract void power(Gamer gamer1, Gamer gamer2);
+
+    @Override
+    public boolean equals(Object c){
+        if(c instanceof Object){
+            Card card=(Card) c;
+            card.race=this.race;
+            return true;
+        }
+        return false;
+    }
 }

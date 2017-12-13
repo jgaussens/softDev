@@ -14,4 +14,13 @@ public class Gnome extends Card {
     {
         return Gnome.NAME;
     }
+
+    @Override
+    public boolean equals(Object c){
+        if(c instanceof Object ){
+            return true;
+
+        }
+        return false;
+    }
 }
