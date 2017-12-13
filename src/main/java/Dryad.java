@@ -34,4 +34,13 @@ public class Dryad extends Card {
     {
         return Dryad.NAME;
     }
+
+    @Override
+    public boolean equals(Object c){
+        if(c instanceof Object ){
+            return true;
+
+        }
+        return false;
+    }
 }

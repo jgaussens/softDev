@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Collections;
 
 public class Deck {
-	
+
+
     private List<Card> cards;
 
     public Deck()
@@ -20,6 +21,10 @@ public class Deck {
 
     public List<Card> getCards() {
         return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
     }
     
     public void shuffleDeck()
@@ -38,7 +43,16 @@ public class Deck {
     	
     	
     }
-    
+
+    @Override
+    public  boolean equals(Object c){
+        if (c instanceof Object){
+            Deck d=(Deck) c;
+            d.cards=this.cards;
+            return true;
+        }
+        return false;
+    }
     
     
 //    

@@ -19,4 +19,13 @@ public class Troll extends Card {
     {
         return Troll.NAME;
     }
+
+    @Override
+    public boolean equals(Object c){
+        if(c instanceof Object ){
+            return true;
+
+        }
+        return false;
+    }
 }

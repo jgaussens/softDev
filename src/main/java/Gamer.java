@@ -7,6 +7,9 @@ public class Gamer {
 
     private List<Card> handCards;
     private List<Card> boardCards;
+
+
+
     private Board board;
 
     public Gamer()
@@ -29,6 +32,10 @@ public class Gamer {
     public void setBoard(Board board)
     {
     	this.board = board;
+    }
+
+    public Board getBoard() {
+        return board;
     }
     
     
@@ -54,7 +61,17 @@ public class Gamer {
         }
     	//System.out.println(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     }
-    
+     @Override
+    public  boolean equals(Object c){
+        if (c instanceof  Object){
+            Gamer g=(Gamer) c;
+            g.board=this.board;
+            g.boardCards=this.boardCards;
+            g.handCards=this.handCards;
+            return true;
+        }
+        return false;
+     }
     
     
 }
