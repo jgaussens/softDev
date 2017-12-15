@@ -12,8 +12,10 @@ public class Main {
 
     public static void main(String[] args) {
         
+    	int taillePioche = 30;
+    	
         Partie partie = new Partie();
-        partie.init();
+        partie.init(taillePioche);
         partie.roundOfGame();
         
         /*

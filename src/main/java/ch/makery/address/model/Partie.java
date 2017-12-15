@@ -25,7 +25,7 @@ public class Partie {
 		this.board = board;
 	}
 	
-	public void init()
+	public void init(int taillePioche)
 	{	
         this.gamer1.setName("Player 1");
         this.gamer2.setName("Gamer IA");
@@ -35,7 +35,7 @@ public class Partie {
         
         int value;
         Random rand = new Random();
-        for(int i=0; i<20; i++)
+        for(int i=0; i<taillePioche; i++)
         {
         	value = rand.nextInt(6) + 1;
         	switch(value) {
@@ -68,7 +68,7 @@ public class Partie {
 		gamer2.drawCard(5);
 	}
 	
-	public void roundOfGame()
+	public int roundOfGame()
 	{
 		boolean end_of_game = false;
 		this.currentGamer = true;
@@ -93,12 +93,9 @@ public class Partie {
 			
 			round++;
 		}
+		
+		return round;
 	}
-	
-	 public void startGame()
-	 {
-	    	
-	 }
 	    
 	    
 	

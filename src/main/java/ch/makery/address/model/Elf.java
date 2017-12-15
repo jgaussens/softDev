@@ -1,5 +1,6 @@
 package ch.makery.address.model;
 
+import java.util.Random;
 
 public class Elf extends Card {
 
@@ -13,7 +14,7 @@ public class Elf extends Card {
     {
         this.firstTimeUse = true;
     }
-
+/*
     // takes the power of another card from by board cards
     public void power(Gamer gamer1, Gamer opponent)
     {
@@ -33,11 +34,15 @@ public class Elf extends Card {
             this.copiedCard.power(gamer1, opponent);
         }
     }
-
-    private void copyCard(Gamer gamer) throws Exception
+*/
+    public void power(Gamer gamer1,Gamer gamer2)
     {
+    	/*
         //@todo: dynamize it in FRONT. Get chosenCard from user's choice.
-        Card chosenCard = gamer.getBoardCards().get(1);
+    	int value;
+		Random rand = new Random();
+		value = rand.nextInt(this.getHandCards().size());
+        Card chosenCard = gamer2.getBoardCards().get(1);
 
         while (chosenCard.toString() == "Elf") {
             System.out.println("You cannot chose an elf. Chose another card.");
@@ -46,6 +51,7 @@ public class Elf extends Card {
 
         this.copiedCard = chosenCard;
         System.out.println("You chose to copy " + chosenCard.toString() + "'s power with your Elf.");
+        */
     }
 
     public String toString()

@@ -1,5 +1,6 @@
 package ch.makery.address.model;
 
+import java.util.Random;
 
 public class Dryad extends Card {
 
@@ -22,7 +23,11 @@ public class Dryad extends Card {
     */
 
         //@todo: dynamize in FRONT, get the index of the card the user wants to steal
-        int indexToSteal = 1;
+        //@done
+        int value;
+		Random rand = new Random();
+		value = rand.nextInt(opponent.getHandCards().size());
+        int indexToSteal = value;
 
         gamer.getBoardCards().add(opponent.getBoardCards().get(indexToSteal));
         opponent.getBoardCards().remove(indexToSteal);
