@@ -161,3 +161,79 @@ public class GameBoardController implements Initializable{
           myBoard.getDraw().add(troll1);         
 
     }
+
+
+public void piocher(MouseEvent event) {	
+	
+	/*p.arm();
+	PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+	pause.setOnFinished(e -> piocher.disarm());
+	pause.play();*/
+    
+	myBoard.getDraw().add(korrigan1);
+    myBoard.getDraw().add(elf1);
+    myBoard.getDraw().add(gnome1);
+    
+    //Add Some cards to the draw(2)
+    myBoard.getDraw().add(dryad1);
+    myBoard.getDraw().add(goblin1);
+    myBoard.getDraw().add(troll1);
+    
+    gamer1.drawCard(4);
+	gamer2.drawCard(4);
+	
+	System.out.print("Original Deck:");
+    System.out.println(gamer1.getHandCards());
+    System.out.println(myBoard.getDraw().size());             
+	
+    System.out.println(gamer2.getHandCards());
+	
+	RefreshGame();
+          	        	
+ }
+
+public void poserCarteRoyaume(MouseEvent event ) {
+	
+	 	ImageView imageViewCurrent = (ImageView) event.getSource(); 		 	
+	 
+	 	gamer1.playCard(FindRightCard(FindCard(imageViewCurrent), gamer1.getHandCards())) ;
+	 
+	 	RefreshGame();	
+ 
+    }
+
+
+
+public void poserCarteRoyaume2(MouseEvent event ) {
+	
+ 	ImageView imageViewCurrent = (ImageView) event.getSource(); 		 	
+ 	
+ 	
+ 	gamer2.playCard(FindRightCard(FindCard(imageViewCurrent), gamer2.getHandCards())) ;
+ 
+ 	RefreshGame();	
+	  		 
+	 
+}
+
+public void usePower(MouseEvent event ) {
+	
+ 	ImageView imageViewCurrent = (ImageView) event.getSource(); 
+ 	
+ 	 
+ 	gamer1.getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),gamer1.getBoardCards())).power(gamer1, gamer2);
+ 	
+	 		 
+ 	RefreshGame();	
+}
+
+public void usePower2(MouseEvent event ) {
+	
+ 	ImageView imageViewCurrent = (ImageView) event.getSource(); 
+ 	
+ 	 
+ 	gamer2.getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),gamer2.getBoardCards())).power(gamer2, gamer1);
+ 	
+	 		 
+ 	RefreshGame();	
+}
