@@ -35,7 +35,7 @@ public class Elf extends Card {
         }
     }
 */
-    public void power(Gamer gamer1,Gamer gamer2)
+    public void power(Gamer gamer,Gamer opponent)
     {
     	/*
         //@todo: dynamize it in FRONT. Get chosenCard from user's choice.
@@ -52,8 +52,30 @@ public class Elf extends Card {
         this.copiedCard = chosenCard;
         System.out.println("You chose to copy " + chosenCard.toString() + "'s power with your Elf.");
         */
+    	int value;
+		Random rand = new Random();
+		value = rand.nextInt(gamer.getHandCards().size());
+        int indexToCopy = value;
+
+        copyCard(gamer,indexToCopy);
+        
+        
     }
 
+    private void copyCard(Gamer gamer, int value)
+    {
+        //@todo: dynamize it in FRONT. Get chosenCard from user's choice.
+        Card chosenCard = gamer.getBoardCards().get(value);
+
+        while (chosenCard.toString() == "Elf") {
+            System.out.println("You cannot chose an elf. Chose another card.");
+        }
+        //@todo: User must not be able to chose an Elf.
+
+        this.copiedCard = chosenCard;
+        System.out.println("You chose to copy " + chosenCard.toString() + "'s power with your Elf.");
+    }
+    
     public String toString()
     {
         return Elf.NAME;
