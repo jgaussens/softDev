@@ -9,15 +9,15 @@ public class Dryad extends Card {
     //fonction à finir
     public void power(Gamer gamer, Gamer opponent)
     {
-        System.out.println("Dryad's power activated.");
-      /*  //Comment choper l'indice de cette carte (self ça existe pas en C#)
+       System.out.println("Dryad's power activated.");
+      /*  //Comment choper l'indice de cette carte (self Ã§a existe pas en C#)
     	int i = 0;
-    	while(gamer1.getHandCards().get(i).toString() != "Dryad") // faire un toString ici pour choper là où c'est une driade
+    	while(gamer1.getHandCards().get(i).toString() != "Dryad") // faire un toString ici pour choper lÃ  oÃ¹ c'est une driade
     	{
     		i+=1;
     		
     	}
-    	//Choper le pouvoir du même indice sur le board d'en face
+    	//Choper le pouvoir du mÃªme indice sur le board d'en face
     		// que faire si personne en face?
     		//doit-on override la fonction pouvoir ?
     */
