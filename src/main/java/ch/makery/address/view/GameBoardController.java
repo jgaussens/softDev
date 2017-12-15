@@ -237,3 +237,314 @@ public void usePower2(MouseEvent event ) {
 	 		 
  	RefreshGame();	
 }
+	
+	
+public void RefreshGame()
+{
+	idTrollHand.setImage(null);
+	idGnomeHand.setImage(null);
+	idElfHand.setImage(null);
+	idGoblinHand.setImage(null);
+	idDryadHand.setImage(null);
+	idKorriganHand.setImage(null);
+	
+	idTrollHand2.setImage(null);
+	idGnomeHand2.setImage(null);
+	idElfHand2.setImage(null);
+	idGoblinHand2.setImage(null);
+	idDryadHand2.setImage(null);
+	idKorriganHand2.setImage(null);
+	
+	idTrollKingdom.setImage(null);
+	idGnomeKingdom.setImage(null);
+	idElfKingdom.setImage(null);
+	idGoblinKingdom.setImage(null);
+	idDryadKingdom.setImage(null);
+	idKorriganKingdom.setImage(null);
+	
+	idTrollKingdom2.setImage(null);
+	idGnomeKingdom2.setImage(null);
+	idElfKingdom2.setImage(null);
+	idGoblinKingdom2.setImage(null);
+	idDryadKingdom2.setImage(null);
+	idKorriganKingdom2.setImage(null);
+	
+	for(int i=0; i<gamer1.getHandCards().size(); i++)
+	{
+		cardImageView(gamer1.getHandCards().get(i)).setImage(createCardImg(gamer1.getHandCards().get(i)));
+	}
+	
+	for(int i=0; i<gamer1.getBoardCards().size(); i++)
+	{
+		cardImageViewKingdom(gamer1.getBoardCards().get(i)).setImage(createCardImg(gamer1.getBoardCards().get(i)));
+	}
+	
+	for(int i=0; i<gamer2.getHandCards().size(); i++)
+	{
+		cardImageView2(gamer2.getHandCards().get(i)).setImage(createCardImg(gamer2.getHandCards().get(i)));
+	}
+	
+	for(int i=0; i<gamer2.getBoardCards().size(); i++)
+	{
+		cardImageViewKingdom2(gamer2.getBoardCards().get(i)).setImage(createCardImg(gamer2.getBoardCards().get(i)));
+	}
+	
+	countPlayerPoint = gamer1.getBoardCards().size();
+	 idPlayerPoint.setText(Integer.toString(countPlayerPoint));	
+	
+	countPlayer2Point = gamer2.getBoardCards().size();
+	 idPlayer2Point.setText(Integer.toString(countPlayer2Point));
+	
+}
+
+private int FindRightCard(String race, List<Card> myList)
+{
+	int indice =-1;
+	
+	for(int i=0; i<myList.size(); i++)
+	{
+		if(race == myList.get(i).toString())
+		{
+			return i;
+		}
+	}
+	
+	
+	return indice;
+}
+
+private String FindCard(ImageView cardi)
+{
+	String result ="";
+	
+		switch (cardi.getId()) {
+		case "idKorriganHand":
+		    result = "Korrigan"; 
+		    break;
+		case "idDryadHand":
+		    result = "Dryad";
+		    break;
+		case "idElfHand":
+		    result = "Elf";
+		    break;
+		case "idGoblinHand":
+		    result = "Goblin";
+		    break;
+		case "idGnomeHand":
+		    result = "Gnome";
+		    break;
+		case "idTrollHand":
+		    result = "Troll";
+		    break;
+		    
+		case "idKorriganHand2":
+		    result = "Korrigan"; 
+		    break;
+		case "idDryadHand2":
+		    result = "Dryad";
+		    break;
+		case "idElfHand2":
+		    result = "Elf";
+		    break;
+		case "idGoblinHand2":
+		    result = "Goblin";
+		    break;
+		case "idGnomeHand2":
+		    result = "Gnome";
+		    break;
+		case "idTrollHand2":
+		    result = "Troll";
+		    break;
+		    
+		case "idKorriganKingdom":
+		    result = "Korrigan"; 
+		    break;
+		case "idDryadKingdom":
+		    result = "Dryad";
+		    break;
+		case "idElfKingdom":
+		    result = "Elf";
+		    break;
+		case "idGoblinKingdom":
+		    result = "Goblin";
+		    break;
+		    
+		case "idGnomeKingdom":
+		    result = "Gnome";
+		    break;
+		    
+		case "idTrollKingdom":
+		    result = "Troll";
+		    break;
+		    
+		case "idKorriganKingdom2":
+		    result = "Korrigan"; 
+		    break;
+		case "idDryadKingdom2":
+		    result = "Dryad";
+		    break;
+		case "idElfKingdom2":
+		    result = "Elf";
+		    break;
+		case "idGoblinKingdom2":
+		    result = "Goblin";
+		    break;
+		    
+		case "idGnomeKingdom2":
+		    result = "Gnome";
+		    break;
+		    
+		case "idTrollKingdom2":
+		    result = "Troll";
+		    break;
+		    
+		}
+return result;	
+}
+
+private Image createCardImg(Card card) {
+    String ressource = cardImageURL(card);
+    return new Image(getClass().getResourceAsStream(ressource));
+}
+
+private String cardImageURL(Card card) {
+    String result = "";
+    
+    switch (card.toString()) {
+        case "Korrigan":
+            result = "images/korrigan.png";
+            break;
+        case "Dryad":
+            result = "images/dryad.png";
+            break;
+        case "Elf":
+            result = "images/elf.png";
+            break;
+        case "Goblin":
+            result = "images/goblin.png";
+            break;
+        case "Gnome":
+            result = "images/gnome.png";
+            break;
+        case "Troll":
+            result = "images/troll.png";
+            break;
+
+    }
+
+    return result;
+}
+
+private ImageView cardImageView(Card card) {
+    ImageView result = null;
+    
+    switch (card.toString()) {
+        case "Korrigan":
+            result = idKorriganHand;
+            break;
+        case "Dryad":
+            result = idDryadHand;
+            break;
+        case "Elf":
+            result = idElfHand;
+            break;
+        case "Goblin":
+            result = idGoblinHand;
+            break;
+        case "Gnome":
+            result = idGnomeHand;
+            break;
+        case "Troll":
+            result = idTrollHand;
+            break;
+
+    }
+
+    return result;
+}
+
+private ImageView cardImageView2(Card card) {
+    ImageView result = null;
+    
+    switch (card.toString()) {
+        case "Korrigan":
+            result = idKorriganHand2;
+            break;
+        case "Dryad":
+            result = idDryadHand2;
+            break;
+        case "Elf":
+            result = idElfHand2;
+            break;
+        case "Goblin":
+            result = idGoblinHand2;
+            break;
+        case "Gnome":
+            result = idGnomeHand2;
+            break;
+        case "Troll":
+            result = idTrollHand2;
+            break;
+
+    }
+
+    return result;
+}
+
+private ImageView cardImageViewKingdom(Card card) {
+    ImageView result = null;
+    
+    switch (card.toString()) {
+        case "Korrigan":
+            result = idKorriganKingdom;
+            break;
+        case "Dryad":
+            result = idDryadKingdom;
+            break;
+        case "Elf":
+            result = idElfKingdom;
+            break;
+        case "Goblin":
+            result = idGoblinKingdom;
+            break;
+        case "Gnome":
+            result = idGnomeKingdom;
+            break;
+        case "Troll":
+            result = idTrollKingdom;
+            break;
+
+    }
+
+    return result;
+}
+
+private ImageView cardImageViewKingdom2(Card card) {
+    ImageView result = null;
+    
+    switch (card.toString()) {
+        case "Korrigan":
+            result = idKorriganKingdom2;
+            break;
+        case "Dryad":
+            result = idDryadKingdom2;
+            break;
+        case "Elf":
+            result = idElfKingdom2;
+            break;
+        case "Goblin":
+            result = idGoblinKingdom2;
+            break;
+        case "Gnome":
+            result = idGnomeKingdom2;
+            break;
+        case "Troll":
+            result = idTrollKingdom2;
+            break;
+
+    }
+
+    return result;
+}
+}
+
