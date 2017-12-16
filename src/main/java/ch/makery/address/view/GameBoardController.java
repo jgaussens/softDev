@@ -197,6 +197,12 @@ public class GameBoardController implements Initializable{
 
     @FXML
     private Text idPlayer2Point;
+    
+    @FXML
+    private Text turnPlayer1;
+    
+    @FXML
+    private Text turnPlayer2;
      
 	Partie partie = new Partie();
 		
@@ -223,19 +229,27 @@ public void piocher(MouseEvent event) {
     partie.getGamer1().drawCard(5);
     partie.getGamer2().drawCard(5);
     countdraw++;
+    turnPlayer1.setText("It's your turn");
+    
+    idDeck.setDisable(true);
 	}
 	
 	else if(countdraw== 1)
-	{
+	{	
+		hand2.setDisable(false);
 		partie.getGamer2().drawCard(1);
 		countdraw++;
+		 idDeck.setDisable(true);
 	}
 	
 	else if(countdraw== 2)
 	{
+		hand1.setDisable(false);
 		partie.getGamer1().drawCard(1);
 		countdraw--;
+		 idDeck.setDisable(true);
 	}
+	
 	
 	RefreshGame();       	
  }
@@ -249,8 +263,7 @@ public void poserCarteRoyaume(MouseEvent event ) {
 	 	RefreshGame();
 	 	
 	 	hand1.setDisable(true);	 	
-	 	kingdom1.setDisable(false);
-	 	
+	 	kingdom1.setDisable(false);	 	
 	 	
     }
 
@@ -277,8 +290,11 @@ public void usePower(MouseEvent event ) {
  	partie.getGamer1().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer1().getBoardCards())).power(partie.getGamer1(), partie.getGamer2());
  		 		 
  	
- 	kingdom1.setDisable(true);
- 	hand2.setDisable(false);
+ 	kingdom1.setDisable(true); 	
+ 	
+ 	 turnPlayer1.setText(null);
+ 	 turnPlayer2.setText("It's your turn");
+ 	 idDeck.setDisable(false);
  	
  	
  	RefreshGame();	
@@ -290,8 +306,12 @@ public void usePower2(MouseEvent event ) {
  	 	 
  	partie.getGamer2().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer2().getBoardCards())).power(partie.getGamer2(), partie.getGamer1());
  		 		 
- 	kingdome2.setDisable(true);
- 	hand1.setDisable(false);
+ 	kingdome2.setDisable(true); 	
+ 	
+ 	 turnPlayer2.setText(null);
+ 	 turnPlayer1.setText("It's your turn");
+ 	idDeck.setDisable(false);
+ 	 
  	
  	RefreshGame();	
 }
@@ -382,6 +402,7 @@ public void RefreshGame()
 	 cntKorriganK2.setText(CountCard("Korrigan", partie.getGamer2().getBoardCards()));
 	 cntDryadK2.setText(CountCard("Dryad", partie.getGamer2().getBoardCards()));
 	 cntGnomeK2.setText(CountCard("Gnome", partie.getGamer2().getBoardCards()));
+	 
 	 
 }
 
