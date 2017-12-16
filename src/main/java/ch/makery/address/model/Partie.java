@@ -63,9 +63,6 @@ public class Partie {
         	}
         }
         
-      //Cas spécifique du tour 0 - Chaque joueur pioche 5 cartes
-        gamer1.drawCard(5);
-		gamer2.drawCard(5);
 	}
 	
 	public int roundOfGame()

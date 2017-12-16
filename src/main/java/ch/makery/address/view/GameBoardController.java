@@ -1,12 +1,7 @@
 package ch.makery.address.view;
 
-import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 import javafx.fxml.Initializable;
 
@@ -17,9 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import javafx.util.Duration;
+
 
 import java.net.URL;
 import java.util.List;
@@ -33,6 +26,7 @@ import ch.makery.address.model.Gamer;
 import ch.makery.address.model.Gnome;
 import ch.makery.address.model.Goblin;
 import ch.makery.address.model.Korrigan;
+import ch.makery.address.model.Partie;
 import ch.makery.address.model.Troll;
 
 
@@ -61,6 +55,24 @@ public class GameBoardController implements Initializable{
     private ImageView idDryadHand2;
 
     @FXML
+    private Text cntGoblinH2;
+
+    @FXML
+    private Text cntTrollH2;
+
+    @FXML
+    private Text cntKorriganH2;
+
+    @FXML
+    private Text cntGnomeH2;
+
+    @FXML
+    private Text cntElfH2;
+
+    @FXML
+    private Text cntDryadH2;
+
+    @FXML
     private HBox kingdome2;
 
     @FXML
@@ -80,6 +92,24 @@ public class GameBoardController implements Initializable{
 
     @FXML
     private ImageView idDryadKingdom2;
+
+    @FXML
+    private Text cntGoblinK2;
+
+    @FXML
+    private Text cntTrollK2;
+
+    @FXML
+    private Text cntKorriganK2;
+
+    @FXML
+    private Text cntGnomeK2;
+
+    @FXML
+    private Text cntElfK2;
+
+    @FXML
+    private Text cntDryadK2;
 
     @FXML
     private HBox kingdom1;
@@ -103,6 +133,24 @@ public class GameBoardController implements Initializable{
     private ImageView idDryadKingdom;
 
     @FXML
+    private Text cntGoblinK;
+
+    @FXML
+    private Text cntTrollK;
+
+    @FXML
+    private Text cntKorriganK;
+
+    @FXML
+    private Text cntGnomeK;
+
+    @FXML
+    private Text cntElfK;
+
+    @FXML
+    private Text cntDryadK;
+
+    @FXML
     private HBox hand1;
 
     @FXML
@@ -124,84 +172,73 @@ public class GameBoardController implements Initializable{
     private ImageView idDryadHand;
 
     @FXML
+    private Text cntGoblinH;
+
+    @FXML
+    private Text cntTrollH;
+
+    @FXML
+    private Text cntKorriganH;
+
+    @FXML
+    private Text cntGnomeH;
+
+    @FXML
+    private Text cntElfH;
+
+    @FXML
+    private Text cntDryadH;
+
+    @FXML
     private ImageView idDeck;
-    
+
     @FXML
     private Text idPlayerPoint;
-    
+
     @FXML
     private Text idPlayer2Point;
-    
-    Dryad dryad1 = new Dryad();
-    Korrigan korrigan1 = new Korrigan();
-    Elf elf1 = new Elf();
-    Gnome gnome1 = new Gnome();
-    Troll troll1 = new Troll();
-    Goblin goblin1 = new Goblin();
+     
+   
     
     Board myBoard = new Board();
 	Gamer gamer1 = new Gamer();
 	Gamer gamer2 = new Gamer();
+	
+	Partie partie = new Partie();
 		
 	int countPlayerPoint =0;
 	int countPlayer2Point =0;
 	
     public void initialize(URL location, ResourceBundle resources) {         	 
       
-          gamer1.setBoard(myBoard); 
-          gamer2.setBoard(myBoard); 
-          
-          myBoard.getDraw().add(korrigan1);
-          myBoard.getDraw().add(elf1);
-          myBoard.getDraw().add(gnome1);
-          
-          //Add Some cards to the draw(2)
-         // myBoard.getDraw().add(dryad1);
-          myBoard.getDraw().add(goblin1);
-          myBoard.getDraw().add(troll1);         
+    	partie.init(30);
+    	
+    	hand2.setDisable(true);
 
     }
 
 
 public void piocher(MouseEvent event) {	
 	
-	/*p.arm();
-	PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
-	pause.setOnFinished(e -> piocher.disarm());
-	pause.play();*/
-    
-	myBoard.getDraw().add(korrigan1);
-    myBoard.getDraw().add(elf1);
-    myBoard.getDraw().add(gnome1);
-    
-    //Add Some cards to the draw(2)
-    myBoard.getDraw().add(dryad1);
-    myBoard.getDraw().add(goblin1);
-    myBoard.getDraw().add(troll1);
-    
-    gamer1.drawCard(4);
-	gamer2.drawCard(4);
+    partie.getGamer1().drawCard(5);
+    partie.getGamer2().drawCard(5);
 	
-	System.out.print("Original Deck:");
-    System.out.println(gamer1.getHandCards());
-    System.out.println(myBoard.getDraw().size());             
-	
-    System.out.println(gamer2.getHandCards());
-	
-	RefreshGame();
-          	        	
+	RefreshGame();       	
  }
 
 public void poserCarteRoyaume(MouseEvent event ) {
 	
 	 	ImageView imageViewCurrent = (ImageView) event.getSource(); 		 	
 	 
-	 	gamer1.playCard(FindRightCard(FindCard(imageViewCurrent), gamer1.getHandCards())) ;
+	 	partie.getGamer1().playCard(FindRightCard(FindCard(imageViewCurrent), partie.getGamer1().getHandCards())) ;
 	 
-	 	RefreshGame();	
- 
+	 	RefreshGame();
+	 	
+	 	hand1.setDisable(true);
+	 	hand2.setDisable(false);
+	 	
+	 	//cardImageViewKingdom();
     }
-
 
 
 public void poserCarteRoyaume2(MouseEvent event ) {
@@ -209,32 +246,32 @@ public void poserCarteRoyaume2(MouseEvent event ) {
  	ImageView imageViewCurrent = (ImageView) event.getSource(); 		 	
  	
  	
- 	gamer2.playCard(FindRightCard(FindCard(imageViewCurrent), gamer2.getHandCards())) ;
+ 	partie.getGamer2().playCard(FindRightCard(FindCard(imageViewCurrent), partie.getGamer2().getHandCards())) ;
  
  	RefreshGame();	
 	  		 
-	 
+ 	hand2.setDisable(true);
+ 	hand1.setDisable(false);
 }
 
 public void usePower(MouseEvent event ) {
 	
  	ImageView imageViewCurrent = (ImageView) event.getSource(); 
  	
- 	 
- 	gamer1.getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),gamer1.getBoardCards())).power(gamer1, gamer2);
  	
-	 		 
+ 	 	 
+ 	partie.getGamer1().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer1().getBoardCards())).power(partie.getGamer1(), partie.getGamer2());
+ 		 		 
+ 	imageViewCurrent.setDisable(true);
  	RefreshGame();	
 }
 
 public void usePower2(MouseEvent event ) {
 	
  	ImageView imageViewCurrent = (ImageView) event.getSource(); 
- 	
- 	 
- 	gamer2.getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),gamer2.getBoardCards())).power(gamer2, gamer1);
- 	
-	 		 
+ 	 	 
+ 	partie.getGamer2().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer2().getBoardCards())).power(partie.getGamer2(), partie.getGamer1());
+ 		 		 
  	RefreshGame();	
 }
 	
@@ -269,31 +306,79 @@ public void RefreshGame()
 	idDryadKingdom2.setImage(null);
 	idKorriganKingdom2.setImage(null);
 	
-	for(int i=0; i<gamer1.getHandCards().size(); i++)
+	
+	
+	for(int i=0; i<partie.getGamer1().getHandCards().size(); i++)
 	{
-		cardImageView(gamer1.getHandCards().get(i)).setImage(createCardImg(gamer1.getHandCards().get(i)));
+		cardImageView(partie.getGamer1().getHandCards().get(i)).setImage(createCardImg(partie.getGamer1().getHandCards().get(i)));
 	}
 	
-	for(int i=0; i<gamer1.getBoardCards().size(); i++)
+	for(int i=0; i<partie.getGamer1().getBoardCards().size(); i++)
 	{
-		cardImageViewKingdom(gamer1.getBoardCards().get(i)).setImage(createCardImg(gamer1.getBoardCards().get(i)));
+		cardImageViewKingdom(partie.getGamer1().getBoardCards().get(i)).setImage(createCardImg(partie.getGamer1().getBoardCards().get(i)));
 	}
 	
-	for(int i=0; i<gamer2.getHandCards().size(); i++)
+	for(int i=0; i<partie.getGamer2().getHandCards().size(); i++)
 	{
-		cardImageView2(gamer2.getHandCards().get(i)).setImage(createCardImg(gamer2.getHandCards().get(i)));
+		cardImageView2(partie.getGamer2().getHandCards().get(i)).setImage(createCardImg(partie.getGamer2().getHandCards().get(i)));
 	}
 	
-	for(int i=0; i<gamer2.getBoardCards().size(); i++)
+	for(int i=0; i<partie.getGamer2().getBoardCards().size(); i++)
 	{
-		cardImageViewKingdom2(gamer2.getBoardCards().get(i)).setImage(createCardImg(gamer2.getBoardCards().get(i)));
+		cardImageViewKingdom2(partie.getGamer2().getBoardCards().get(i)).setImage(createCardImg(partie.getGamer2().getBoardCards().get(i)));
 	}
 	
-	countPlayerPoint = gamer1.getBoardCards().size();
+	countPlayerPoint = partie.getGamer1().getBoardCards().size();
 	 idPlayerPoint.setText(Integer.toString(countPlayerPoint));	
 	
-	countPlayer2Point = gamer2.getBoardCards().size();
+	countPlayer2Point = partie.getGamer2().getBoardCards().size();
 	 idPlayer2Point.setText(Integer.toString(countPlayer2Point));
+	 
+	 cntTrollH.setText(CountCard("Troll", partie.getGamer1().getHandCards()));
+	 cntGoblinH.setText(CountCard("Goblin", partie.getGamer1().getHandCards()));
+	 cntElfH.setText(CountCard("Elf", partie.getGamer1().getHandCards()));
+	 cntKorriganH.setText(CountCard("Korrigan", partie.getGamer1().getHandCards()));
+	 cntDryadH.setText(CountCard("Dryad", partie.getGamer1().getHandCards()));
+	 cntGnomeH.setText(CountCard("Gnome", partie.getGamer1().getHandCards()));
+	 
+	 cntTrollK.setText(CountCard("Troll", partie.getGamer1().getBoardCards()));
+	 cntGoblinK.setText(CountCard("Goblin", partie.getGamer1().getBoardCards()));
+	 cntElfK.setText(CountCard("Elf", partie.getGamer1().getBoardCards()));
+	 cntKorriganK.setText(CountCard("Korrigan", partie.getGamer1().getBoardCards()));
+	 cntDryadK.setText(CountCard("Dryad", partie.getGamer1().getBoardCards()));
+	 cntGnomeK.setText(CountCard("Gnome", partie.getGamer1().getBoardCards()));
+	 
+	 cntTrollH2.setText(CountCard("Troll", partie.getGamer2().getHandCards()));
+	 cntGoblinH2.setText(CountCard("Goblin", partie.getGamer2().getHandCards()));
+	 cntElfH2.setText(CountCard("Elf", partie.getGamer2().getHandCards()));
+	 cntKorriganH2.setText(CountCard("Korrigan", partie.getGamer2().getHandCards()));
+	 cntDryadH2.setText(CountCard("Dryad", partie.getGamer2().getHandCards()));
+	 cntGnomeH2.setText(CountCard("Gnome", partie.getGamer2().getHandCards()));
+	 
+	 cntTrollK2.setText(CountCard("Troll", partie.getGamer2().getBoardCards()));
+	 cntGoblinK2.setText(CountCard("Goblin", partie.getGamer2().getBoardCards()));
+	 cntElfK2.setText(CountCard("Elf", partie.getGamer2().getBoardCards()));
+	 cntKorriganK2.setText(CountCard("Korrigan", partie.getGamer2().getBoardCards()));
+	 cntDryadK2.setText(CountCard("Dryad", partie.getGamer2().getBoardCards()));
+	 cntGnomeK2.setText(CountCard("Gnome", partie.getGamer2().getBoardCards()));
+	 
+}
+
+private String CountCard(String race, List<Card> myList){
+	int count=0;	
+	
+	for(int i=0; i<myList.size(); i++)
+	{ 
+		System.out.println("+");
+		if(race == myList.get(i).toString())
+		{
+			count++;			
+		}		
+	}
+	
+	if(count ==0) return "";
+	
+	else return Integer.toString(count);	
 	
 }
 
