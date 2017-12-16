@@ -75,12 +75,12 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
-                                          <Text fx:id="cntGoblinH2" layoutX="62.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                          <Text fx:id="cntTrollH2" layoutX="204.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                          <Text fx:id="cntKorriganH2" layoutX="343.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                          <Text fx:id="cntGnomeH2" layoutX="483.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                          <Text fx:id="cntElfH2" layoutX="624.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                          <Text fx:id="cntDryadH2" layoutX="763.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGoblinH2" layoutX="68.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntTrollH2" layoutX="209.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntKorriganH2" layoutX="348.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGnomeH2" layoutX="487.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntElfH2" layoutX="628.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntDryadH2" layoutX="769.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
