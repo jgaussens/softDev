@@ -14,7 +14,7 @@ public class Partie {
 	public Partie()
 	{
 		this.gamer1 = new Gamer();
-		this.gamer2 = new GamerIA();
+		this.gamer2 = new Gamer();
 		this.board = new Board();
 	}
 	
