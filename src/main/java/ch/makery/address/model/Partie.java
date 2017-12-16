@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Partie {
 
-	private Board board;
+	public Board board;
 	private Gamer gamer1;
 	private Gamer gamer2;
 	private int round;
@@ -103,6 +103,8 @@ public class Partie {
 	public Gamer getGamer1() {
 		return gamer1;
 	}
+	
+	
 	public void setGamer1(Gamer gamer1) {
 		this.gamer1 = gamer1;
 	}

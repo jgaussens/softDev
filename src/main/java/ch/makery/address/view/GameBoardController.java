@@ -1,18 +1,20 @@
 package ch.makery.address.view;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
-
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
-
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.List;
@@ -223,7 +225,9 @@ public class GameBoardController implements Initializable{
 
 
 public void piocher(MouseEvent event) {	
-	
+
+	if(partie.board.getDraw().size() !=0)
+	{
 	if(countdraw == 0)
 	{
     partie.getGamer1().drawCard(5);
@@ -250,7 +254,13 @@ public void piocher(MouseEvent event) {
 		 idDeck.setDisable(true);
 	}
 	
-	
+	}
+	else 
+	{
+		hand2.setDisable(false);
+		 hand1.setDisable(false);
+		 idDeck.setDisable(true);
+	}
 	RefreshGame();       	
  }
 
@@ -296,7 +306,6 @@ public void usePower(MouseEvent event ) {
  	 turnPlayer2.setText("It's your turn");
  	 idDeck.setDisable(false);
  	
- 	
  	RefreshGame();	
 }
 
@@ -316,7 +325,23 @@ public void usePower2(MouseEvent event ) {
  	RefreshGame();	
 }
 	
-	
+private void gameOver(final Stage primaryStage, String msg) {
+{
+	 
+             final Stage dialog = new Stage();
+             dialog.initModality(Modality.APPLICATION_MODAL);
+             dialog.initOwner(primaryStage);
+             VBox dialogVbox = new VBox(20);
+             dialogVbox.getChildren().add(new Text(msg));
+             Scene dialogScene = new Scene(dialogVbox, 300, 200);
+             dialog.setScene(dialogScene);
+             dialog.show();
+	 
+}
+
+	 
+}
+
 public void RefreshGame()
 {
 	idTrollHand.setImage(null);
@@ -403,7 +428,21 @@ public void RefreshGame()
 	 cntDryadK2.setText(CountCard("Dryad", partie.getGamer2().getBoardCards()));
 	 cntGnomeK2.setText(CountCard("Gnome", partie.getGamer2().getBoardCards()));
 	 
-	 
+	 if(partie.board.getDraw().size() ==0)
+	 {
+		 if( partie.getGamer1().getHandCards().size() == 0 || partie.getGamer2().getHandCards().size() == 0)
+		 {
+			 String msg= "";
+			 if(countPlayerPoint > countPlayer2Point) msg="Game Over, Gamer1 won";
+			 
+			 else if(countPlayerPoint < countPlayer2Point) msg="Game Over, Gamer2 won";
+			 
+			 else msg = "Game Over,  game ended in a draw";
+			 
+			 gameOver(null, msg);
+			 
+		 }
+	 }
 }
 
 private String CountCard(String race, List<Card> myList){
@@ -411,7 +450,7 @@ private String CountCard(String race, List<Card> myList){
 	
 	for(int i=0; i<myList.size(); i++)
 	{ 
-		System.out.println("+");
+		
 		if(race == myList.get(i).toString())
 		{
 			count++;			
