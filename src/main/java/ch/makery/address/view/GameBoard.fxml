@@ -23,7 +23,7 @@
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <HBox fx:id="hand2" alignment="CENTER" layoutX="14.0" layoutY="19.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <HBox fx:id="hand2" alignment="CENTER" layoutX="14.0" layoutY="19.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                                              <children>
                                                 <ImageView fx:id="idGoblinHand2" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume2" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
@@ -75,11 +75,17 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Text fx:id="cntGoblinH2" layoutX="62.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntTrollH2" layoutX="204.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntKorriganH2" layoutX="343.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGnomeH2" layoutX="483.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntElfH2" layoutX="624.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntDryadH2" layoutX="763.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <HBox fx:id="kingdome2" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: #EEE8AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <HBox fx:id="kingdome2" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: #EEE8AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                                              <children>
                                                 <ImageView fx:id="idGoblinKingdom2" fitHeight="150.0" fitWidth="100.0" layoutX="5.0" onMouseClicked="#usePower2" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
@@ -113,6 +119,12 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Text fx:id="cntGoblinK2" layoutX="61.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntTrollK2" layoutX="203.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntKorriganK2" layoutX="341.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGnomeK2" layoutX="483.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntElfK2" layoutX="624.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntDryadK2" layoutX="763.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </items>
@@ -125,7 +137,7 @@
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <HBox fx:id="kingdom1" alignment="CENTER" layoutX="14.0" layoutY="19.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: #EEE8AA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <HBox fx:id="kingdom1" alignment="CENTER" centerShape="false" layoutX="14.0" layoutY="19.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: #EEE8AA;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
                                                 <ImageView fx:id="idGoblinKingdom" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#usePower" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
@@ -159,11 +171,17 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Text fx:id="cntGoblinK" layoutX="60.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntTrollK" layoutX="199.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntKorriganK" layoutX="338.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGnomeK" layoutX="483.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntElfK" layoutX="620.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntDryadK" layoutX="758.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                        </children>
                                     </AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <HBox fx:id="hand1" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <HBox fx:id="hand1" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
                                                 <ImageView fx:id="idGoblinHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
@@ -197,6 +215,12 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
+                                          <Text fx:id="cntGoblinH" layoutX="61.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntTrollH" layoutX="199.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntKorriganH" layoutX="340.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntGnomeH" layoutX="485.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntElfH" layoutX="621.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cntDryadH" layoutX="759.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                        </children>
                                     </AnchorPane>
                                 </items>
