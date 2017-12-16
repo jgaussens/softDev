@@ -57,8 +57,9 @@ public class Elf extends Card {
 		value = rand.nextInt(gamer.getHandCards().size());
         int indexToCopy = value;
 
+        if(gamer.getBoardCards().size() >1){
         copyCard(gamer,indexToCopy);
-        
+        }
         
     }
 
@@ -67,7 +68,7 @@ public class Elf extends Card {
         //@todo: dynamize it in FRONT. Get chosenCard from user's choice.
         Card chosenCard = gamer.getBoardCards().get(value);
 
-        while (chosenCard.toString() == "Elf") {
+        if(chosenCard.toString() == "Elf") {
             System.out.println("You cannot chose an elf. Chose another card.");
         }
         //@todo: User must not be able to chose an Elf.

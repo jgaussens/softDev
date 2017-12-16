@@ -198,30 +198,44 @@ public class GameBoardController implements Initializable{
     @FXML
     private Text idPlayer2Point;
      
-   
-    
-    Board myBoard = new Board();
-	Gamer gamer1 = new Gamer();
-	Gamer gamer2 = new Gamer();
-	
 	Partie partie = new Partie();
 		
 	int countPlayerPoint =0;
 	int countPlayer2Point =0;
 	
+	int countdraw=0;
+	
     public void initialize(URL location, ResourceBundle resources) {         	 
       
-    	partie.init(30);
+    	partie.init(30);  
     	
     	hand2.setDisable(true);
+    	kingdome2.setDisable(true);
+    	kingdom1.setDisable(true);
 
     }
 
 
 public void piocher(MouseEvent event) {	
 	
+	if(countdraw == 0)
+	{
     partie.getGamer1().drawCard(5);
     partie.getGamer2().drawCard(5);
+    countdraw++;
+	}
+	
+	else if(countdraw== 1)
+	{
+		partie.getGamer2().drawCard(1);
+		countdraw++;
+	}
+	
+	else if(countdraw== 2)
+	{
+		partie.getGamer1().drawCard(1);
+		countdraw--;
+	}
 	
 	RefreshGame();       	
  }
@@ -234,44 +248,51 @@ public void poserCarteRoyaume(MouseEvent event ) {
 	 
 	 	RefreshGame();
 	 	
-	 	hand1.setDisable(true);
-	 	hand2.setDisable(false);
+	 	hand1.setDisable(true);	 	
+	 	kingdom1.setDisable(false);
 	 	
-	 	//cardImageViewKingdom();
+	 	
     }
 
 
 public void poserCarteRoyaume2(MouseEvent event ) {
 	
  	ImageView imageViewCurrent = (ImageView) event.getSource(); 		 	
- 	
- 	
+ 	 	
  	partie.getGamer2().playCard(FindRightCard(FindCard(imageViewCurrent), partie.getGamer2().getHandCards())) ;
  
  	RefreshGame();	
 	  		 
  	hand2.setDisable(true);
- 	hand1.setDisable(false);
+ 	kingdome2.setDisable(false);
+ 	
 }
+
 
 public void usePower(MouseEvent event ) {
 	
  	ImageView imageViewCurrent = (ImageView) event.getSource(); 
- 	
- 	
+ 	 	
  	 	 
  	partie.getGamer1().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer1().getBoardCards())).power(partie.getGamer1(), partie.getGamer2());
  		 		 
- 	imageViewCurrent.setDisable(true);
+ 	
+ 	kingdom1.setDisable(true);
+ 	hand2.setDisable(false);
+ 	
+ 	
  	RefreshGame();	
 }
 
 public void usePower2(MouseEvent event ) {
 	
- 	ImageView imageViewCurrent = (ImageView) event.getSource(); 
+ 	ImageView imageViewCurrent=(ImageView) event.getSource(); 
  	 	 
  	partie.getGamer2().getBoardCards().get(FindRightCard(FindCard(imageViewCurrent),partie.getGamer2().getBoardCards())).power(partie.getGamer2(), partie.getGamer1());
  		 		 
+ 	kingdome2.setDisable(true);
+ 	hand1.setDisable(false);
+ 	
  	RefreshGame();	
 }
 	

@@ -26,11 +26,14 @@ public class Dryad extends Card {
         //@done
         int value;
 		Random rand = new Random();
-		value = rand.nextInt(opponent.getHandCards().size());
-        int indexToSteal = value;
-
+		
+        if(opponent.getBoardCards().size() !=0)
+        {
+        	value = rand.nextInt(opponent.getBoardCards().size());
+            int indexToSteal = value;
         gamer.getBoardCards().add(opponent.getBoardCards().get(indexToSteal));
         opponent.getBoardCards().remove(indexToSteal);
+        }
 
      }
 
