@@ -187,31 +187,49 @@
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <ImageView fx:id="idTrollHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <ImageView fx:id="idKorriganHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <ImageView fx:id="idGnomeHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <ImageView fx:id="idElfHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                                 <ImageView fx:id="idDryadHand" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#poserCarteRoyaume" pickOnBounds="true" preserveRatio="true">
                                                    <viewport>
                                                       <Rectangle2D />
                                                    </viewport>
+                                                   <image>
+                                                      <Image url="@images/deck.png" />
+                                                   </image>
                                                 </ImageView>
                                              </children>
                                           </HBox>
@@ -261,6 +279,8 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
+                  <Text fx:id="turnPlayer1" layoutX="65.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="22.136718034744263" />
+                  <Text fx:id="turnPlayer2" layoutX="65.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.136718034744263" />
                </children>
             </AnchorPane>
         </items>
