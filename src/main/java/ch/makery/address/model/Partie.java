@@ -13,7 +13,7 @@ public class Partie {
 	public Partie()
 	{
 		this.gamer1 = new Gamer();
-		this.gamer2 = new GamerIA();
+		this.gamer2 = new Gamer();
 		this.board = new Board();
 		this.round = new int[2];
 		round[0] = 1;
@@ -69,9 +69,7 @@ public class Partie {
         this.round[0] = 1;
         this.round[1] = 0;
         
-      //Cas spécifique du tour 0 - Chaque joueur pioche 5 cartes
-        gamer1.drawCard(5);
-		gamer2.drawCard(5);
+      
 	}
 	
 	/*

@@ -215,8 +215,7 @@ public class GameBoardController implements Initializable{
 	
     public void initialize(URL location, ResourceBundle resources) {         	 
       
-    	partie.init(30);  
-    	
+    	partie.init(30);      	
     	hand2.setDisable(true);
     	kingdome2.setDisable(true);
     	kingdom1.setDisable(true);
