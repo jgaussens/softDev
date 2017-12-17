@@ -1,6 +1,7 @@
 package ch.makery.address.model;
 
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Korrigan extends Card {
@@ -11,11 +12,14 @@ public class Korrigan extends Card {
     {
         System.out.println("Korrigan's power. Draw 2 random cards within your opponent hand");
 
+        int value;
+		Random rand = new Random();
+		
         // Draw two cards randomly
         for(int i = 0; i < 2; i++) {
-            int randomIndex = ThreadLocalRandom.current().nextInt(0, opponent.getHandCards().size());
-            gamer.getHandCards().add(opponent.getHandCards().get(randomIndex));
-            opponent.getHandCards().remove(randomIndex);
+        	value = rand.nextInt(opponent.getHandCards().size());
+            gamer.getHandCards().add(opponent.getHandCards().get(value));
+            opponent.getHandCards().remove(value);
         }
     }
 
