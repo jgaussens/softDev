@@ -21,6 +21,8 @@ public class Main {
         {
         	partie.roundOfGame();
         }
+        
+        System.out.println(partie.getBoard().getDraw().size());
         /*
         System.out.print("Original Deck:");
         System.out.println(myBoard.getDraw());

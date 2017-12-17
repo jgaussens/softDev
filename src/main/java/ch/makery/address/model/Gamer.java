@@ -74,12 +74,25 @@ public class Gamer {
     
     public void drawCard(int n)
     {
-    	this.handCards.addAll(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
-    	// Removing from the deck the card we just drew
-    	for (int i = n; i > 0; i--)
-        {
-    		this.board.getDraw().remove(this.board.getDraw().size() - i);
-        }
+    	if(this.board.getDraw().size()>=n)
+    	{
+    		this.handCards.addAll(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
+    		// Removing from the deck the card we just drew
+        	for (int i = n; i > 0; i--)
+            {
+        		this.board.getDraw().remove(this.board.getDraw().size() - i);
+            }
+    	}
+    	else if(this.board.getDraw().size()==(n-1))
+    	{
+    		n--;
+    		this.handCards.addAll(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
+    		// Removing from the deck the card we just drew
+        	for (int i = n; i > 0; i--)
+            {
+        		this.board.getDraw().remove(this.board.getDraw().size() - i);
+            }
+    	}
     	//System.out.println(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     }
     

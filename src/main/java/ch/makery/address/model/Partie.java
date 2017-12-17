@@ -127,7 +127,10 @@ public class Partie {
 	public boolean endOfGame()
 	{
 		if(this.board.getDraw().size()==0)
+		{
+			System.out.println("FIN");
 			return true;
+		}
 		else
 			return false;
 	}
@@ -140,7 +143,14 @@ public class Partie {
 		return gamer1;
 	}
 	
-	
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
 	public void setGamer1(Gamer gamer1) {
 		this.gamer1 = gamer1;
 	}

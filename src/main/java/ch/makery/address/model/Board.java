@@ -10,11 +10,6 @@ public class Board {
 	//private List<Gamer> gamers; //set of players
 	
 	
-	public List<Card> getDraw()
-	{
-		return this.draw;
-	}
-	
 	public Board()
 	{
 		this.draw = new ArrayList<Card>();
@@ -29,9 +24,14 @@ public class Board {
 		}
 		return false;
 	}
-	
-	
 
+	public void setDraw(List<Card> draw) {
+		this.draw = draw;
+	}
 	
+	public List<Card> getDraw()
+	{
+		return this.draw;
+	}
 	
 }
