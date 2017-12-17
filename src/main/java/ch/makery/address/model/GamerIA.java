@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GamerIA extends Gamer {
 
-	public void playCard(int indice)
+	public int playCard(int indice)
     {
     	//L'IA tire une valeur aléatoirement
 		int value;
@@ -20,6 +20,7 @@ public class GamerIA extends Gamer {
     	this.getHandCards().remove(value);
     	//activate Power of the card???????
     
+    	return indice;
     }
     
     public int actionCHoice()
@@ -38,6 +39,15 @@ public class GamerIA extends Gamer {
 		
 		return 0;
     		
+    }
+    
+    public int cardCHoice()
+    {
+    	int value;
+		Random rand = new Random();
+		value = rand.nextInt(this.getHandCards().size());
+    	
+    	return value;
     }
 }
 

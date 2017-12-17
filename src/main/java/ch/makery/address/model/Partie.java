@@ -13,10 +13,10 @@ public class Partie {
 	public Partie()
 	{
 		this.gamer1 = new Gamer();
-		this.gamer2 = new Gamer();
+		this.gamer2 = new GamerIA();
 		this.board = new Board();
 		this.round = new int[2];
-		round[0] = 0;
+		round[0] = 1;
 		round[1] = 0;
 	}
 	
@@ -66,8 +66,8 @@ public class Partie {
         	}
         }
         
-        this.round[0] = 0;
-        this.round[1] = 1;
+        this.round[0] = 1;
+        this.round[1] = 0;
         
       //Cas spécifique du tour 0 - Chaque joueur pioche 5 cartes
         gamer1.drawCard(5);
@@ -80,21 +80,23 @@ public class Partie {
 	 * 						 Si = 0, doit piocher	
 	 * 						 Si = 1, doit jouer une carte
 	 */
-	public int[] roundOfGame(int round[])
+	public int[] roundOfGame()
 	{
-		System.out.println("\n[Round "+round[0]+" ]\n");
 		if(round[0]%2==1)
 		{
-			System.out.println("This the turn of the gamer 1...");
 			switch(round[1])
 			{
 			case(0):
+				System.out.println("\n[Round "+round[0]+" ]\n");
+				System.out.println("This the turn of the gamer 1...");
 				gamer1.drawCard(1);
 				gamer1.printHand();
 				round[1]++;
 				break;
 			case(1):
-				gamer1.playCard(gamer1.cardCHoice());
+				int index = gamer1.playCard(gamer1.cardCHoice());//Retourne l'indice de la carte joué
+				System.out.println(index);
+				gamer1.getBoardCards().get(index).power(gamer1, gamer2);//On applique les effets du sort sur les deux joueurs
 				round[1]--;//On passe à l'action suivante
 				round[0]++;//On passe au tour du joueur suivant - Round suivant
 				break;
@@ -102,16 +104,18 @@ public class Partie {
 		}
 		else
 		{
-			System.out.println("This the turn of the gamer 2...");
 			switch(round[1])
 			{
-			case(1):
+			case(0):
+				System.out.println("\n[Round "+round[0]+" ]\n");
+				System.out.println("This the turn of the gamer 2...");
 				gamer2.drawCard(1);
 				gamer2.printHand();
 				round[1]++;
 				break;
-			case(2):
-				gamer2.playCard(gamer2.cardCHoice());
+			case(1):
+				int index = gamer2.playCard(gamer2.cardCHoice());//Retourne l'indice de la carte joué
+				gamer1.getBoardCards().get(index).power(gamer2, gamer1);//On applique les effets du sort sur les deux joueurs
 				round[1]--;//On passe à l'action suivante
 				round[0]++;//On passe au tour du joueur suivant - Round suivant
 			}
@@ -120,7 +124,13 @@ public class Partie {
 		return round;
 	}
 	    
-	    
+	public boolean endOfGame()
+	{
+		if(this.board.getDraw().size()==0)
+			return true;
+		else
+			return false;
+	}
 	
 	/***
 	 * GETTER _ SETTER

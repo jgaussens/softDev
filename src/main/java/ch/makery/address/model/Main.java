@@ -17,10 +17,11 @@ public class Main {
         Partie partie = new Partie();
         partie.init(taillePioche);
         
-        //partie.roundOfGame();
-        
+        while(!partie.endOfGame())
+        {
+        	partie.roundOfGame();
+        }
         /*
-        
         System.out.print("Original Deck:");
         System.out.println(myBoard.getDraw());
         

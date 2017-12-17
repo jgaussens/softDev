@@ -59,7 +59,7 @@ public class Gamer {
         return board;
     }
     
-    public void playCard(int indice)
+    public int playCard(int indice)
     {
 
     	//handcards vers boardCards
@@ -68,12 +68,12 @@ public class Gamer {
     	this.boardCards.add(this.handCards.get(indice));
     	this.handCards.remove(indice);
     	//activate Power of the card???????
-    
+    	
+    	return indice;
     }
     
     public void drawCard(int n)
     {
-    	//System.out.println(this.board.getDraw().subList(2,3));
     	this.handCards.addAll(this.board.getDraw().subList(this.board.getDraw().size()-n, this.board.getDraw().size()));
     	// Removing from the deck the card we just drew
     	for (int i = n; i > 0; i--)
@@ -85,6 +85,7 @@ public class Gamer {
     
     public void printHand()
     {
+    	System.out.println("\nYour hand:\n");
     	for(int i=0; i<this.getHandCards().size(); i++)
     	{
     		System.out.println((i+1) + ". - " + this.getHandCards().get(i));
@@ -111,8 +112,6 @@ public class Gamer {
     
     public int cardCHoice()
     {
-    	
-    	this.printHand();
         int choice;
         Scanner scanner = new Scanner(System.in); 
         choice = scanner.nextInt();
@@ -123,8 +122,6 @@ public class Gamer {
     		this.printHand();
         	choice = scanner.nextInt();
     	}
-    	
-    	scanner.close();
     	
     	return choice;
     }
