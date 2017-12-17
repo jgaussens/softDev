@@ -8,21 +8,24 @@ public class Partie {
 	public Board board;
 	private Gamer gamer1;
 	private Gamer gamer2;
-	private int round;
-	private boolean currentGamer;
+	private int[]round;
 	
 	public Partie()
 	{
 		this.gamer1 = new Gamer();
 		this.gamer2 = new Gamer();
 		this.board = new Board();
+		this.round = new int[2];
+		round[0] = 0;
+		round[1] = 0;
 	}
 	
-	public Partie(Gamer g1, Gamer g2, Board board)
+	public Partie(Gamer g1, Gamer g2, Board board, int[]round)
 	{
 		this.gamer1 = g1;
 		this.gamer2 = g2;
 		this.board = board;
+		this.round = round;
 	}
 	
 	public void init(int taillePioche)
@@ -63,32 +66,55 @@ public class Partie {
         	}
         }
         
+        this.round[0] = 0;
+        this.round[1] = 1;
+        
+      //Cas spécifique du tour 0 - Chaque joueur pioche 5 cartes
+        gamer1.drawCard(5);
+		gamer2.drawCard(5);
 	}
 	
-	public int roundOfGame()
+	/*
+	 * @variable: round[0] = Nombre de tour de jeu
+	 * 			  round[1] = Action en cours...
+	 * 						 Si = 0, doit piocher	
+	 * 						 Si = 1, doit jouer une carte
+	 */
+	public int[] roundOfGame(int round[])
 	{
-		boolean end_of_game = false;
-		this.currentGamer = true;
-		
-		System.out.println(board.getDraw());
-		
-		while(!end_of_game)
+		System.out.println("\n[Round "+round[0]+" ]\n");
+		if(round[0]%2==1)
 		{
-			System.out.println("\n[Round "+round+" ]\n");
-			if(currentGamer)
+			System.out.println("This the turn of the gamer 1...");
+			switch(round[1])
 			{
-				System.out.println("This the turn of the gamer 1...");
-				gamer1.actionCHoice();
-				currentGamer = !currentGamer;//On passe le tour au joueur suivant
+			case(0):
+				gamer1.drawCard(1);
+				gamer1.printHand();
+				round[1]++;
+				break;
+			case(1):
+				gamer1.playCard(gamer1.cardCHoice());
+				round[1]--;//On passe à l'action suivante
+				round[0]++;//On passe au tour du joueur suivant - Round suivant
+				break;
 			}
-			else
+		}
+		else
+		{
+			System.out.println("This the turn of the gamer 2...");
+			switch(round[1])
 			{
-				System.out.println("This the turn of the gamer 2...");
-				gamer2.actionCHoice();
-				currentGamer = !currentGamer;
+			case(1):
+				gamer2.drawCard(1);
+				gamer2.printHand();
+				round[1]++;
+				break;
+			case(2):
+				gamer2.playCard(gamer2.cardCHoice());
+				round[1]--;//On passe à l'action suivante
+				round[0]++;//On passe au tour du joueur suivant - Round suivant
 			}
-			
-			round++;
 		}
 		
 		return round;
@@ -113,6 +139,14 @@ public class Partie {
 	}
 	public void setGamer2(Gamer gamer2) {
 		this.gamer2 = gamer2;
+	}
+
+	public int[] getRound() {
+		return round;
+	}
+
+	public void setRound(int[] round) {
+		this.round = round;
 	}
 	
 	

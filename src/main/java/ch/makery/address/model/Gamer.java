@@ -91,32 +91,42 @@ public class Gamer {
     	}
     }
     
-    public void actionCHoice()
+    public int actionCHoice()
     {
+    	
     	System.out.println("1. Pick a card - 2. Play a card");
-    	int choice;
-    	Scanner scanner = new Scanner(System.in); 
-    	choice = scanner.nextInt();
-    	if(choice == 1)
-    	{
-    		this.drawCard(1);
-    		this.printHand();
-    	}
-    	else if(choice == 2)
-    	{
-    		this.printHand();
-    		System.out.println("Which card would you choose ?");
-    		scanner = new Scanner(System.in); 
-        	choice = scanner.nextInt();
+        int choice;
+        Scanner scanner = new Scanner(System.in); 
+        choice = scanner.nextInt();
         	
-        	if(choice >= 1 && choice <= this.getHandCards().size() )
-        	{
-        		this.playCard(choice-1);
-        	}
-    	}
-    	else
+    	while(choice != 1 && choice != 2)
+    	{
     		System.out.println("Please make another choice !");
-    		
+    		System.out.println("1. Pick a card - 2. Play a card");
+        	choice = scanner.nextInt();
+    	}
+    	
+    	return choice;
+    }
+    
+    public int cardCHoice()
+    {
+    	
+    	this.printHand();
+        int choice;
+        Scanner scanner = new Scanner(System.in); 
+        choice = scanner.nextInt();
+        choice--;
+    	while(choice < 0 && choice >= this.getHandCards().size() )
+    	{
+    		System.out.println("Please make another choice !");
+    		this.printHand();
+        	choice = scanner.nextInt();
+    	}
+    	
+    	scanner.close();
+    	
+    	return choice;
     }
 
      @Override

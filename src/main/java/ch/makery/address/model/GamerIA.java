@@ -22,7 +22,7 @@ public class GamerIA extends Gamer {
     
     }
     
-    public void actionCHoice()
+    public int actionCHoice()
     {
     	System.out.println("\nGamerIA Pick a new card...\n");
     	
@@ -35,6 +35,8 @@ public class GamerIA extends Gamer {
 		Random rand = new Random();
 		value = rand.nextInt(this.getHandCards().size());
 		this.playCard(value);
+		
+		return 0;
     		
     }
 }

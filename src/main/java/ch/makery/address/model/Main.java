@@ -16,7 +16,8 @@ public class Main {
     	
         Partie partie = new Partie();
         partie.init(taillePioche);
-        partie.roundOfGame();
+        
+        //partie.roundOfGame();
         
         /*
         
