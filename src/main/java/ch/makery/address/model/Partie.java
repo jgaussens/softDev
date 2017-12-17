@@ -126,9 +126,11 @@ public class Partie {
 	    
 	public boolean endOfGame()
 	{
-		if(this.board.getDraw().size()==0)
+		if(this.board.getDraw().size()==0 && this.gamer1.getHandCards().size()==0 
+										  && this.gamer2.getHandCards().size()==0 
+										  && this.getRound()[1] == 0)
 		{
-			System.out.println("FIN");
+			System.out.println("\n\n[ FIN DU JEU ]");
 			return true;
 		}
 		else
