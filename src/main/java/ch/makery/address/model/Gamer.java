@@ -69,7 +69,7 @@ public class Gamer {
     	this.handCards.remove(indice);
     	//activate Power of the card???????
     	
-    	return indice;
+    	return this.boardCards.size()-1;//Position de la dernière carte ajoutée
     }
     
     public void drawCard(int n)
@@ -116,7 +116,7 @@ public class Gamer {
         Scanner scanner = new Scanner(System.in); 
         choice = scanner.nextInt();
         choice--;
-    	while(choice < 0 && choice >= this.getHandCards().size() )
+    	while(choice < 0 || choice >= this.getHandCards().size() )
     	{
     		System.out.println("Please make another choice !");
     		this.printHand();

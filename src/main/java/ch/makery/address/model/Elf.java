@@ -52,13 +52,12 @@ public class Elf extends Card {
         this.copiedCard = chosenCard;
         System.out.println("You chose to copy " + chosenCard.toString() + "'s power with your Elf.");
         */
-    	int value;
-		Random rand = new Random();
-		value = rand.nextInt(gamer.getHandCards().size());
-        int indexToCopy = value;
-
-        if(gamer.getBoardCards().size() >1){
-        copyCard(gamer,indexToCopy);
+    	System.out.println("Elf activates his power");
+ 
+        if(gamer.getBoardCards().size()>0){
+        	Random rand = new Random();
+            int indexToCopy = rand.nextInt(gamer.getBoardCards().size());
+        	copyCard(gamer,indexToCopy);
         }
         
     }

@@ -21,7 +21,7 @@ public class Dryad extends Card {
     		// que faire si personne en face?
     		//doit-on override la fonction pouvoir ?
     */
-
+       	
         //@todo: dynamize in FRONT, get the index of the card the user wants to steal
         //@done
         int value;
@@ -31,10 +31,10 @@ public class Dryad extends Card {
         {
         	value = rand.nextInt(opponent.getBoardCards().size());
             int indexToSteal = value;
-        gamer.getBoardCards().add(opponent.getBoardCards().get(indexToSteal));
-        opponent.getBoardCards().remove(indexToSteal);
+            gamer.getBoardCards().add(opponent.getBoardCards().get(indexToSteal));
+        	opponent.getBoardCards().remove(indexToSteal);
         }
-
+        
      }
 
     public String toString()

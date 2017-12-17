@@ -10,6 +10,8 @@ public class Korrigan extends Card {
 
     public void power(Gamer gamer, Gamer opponent)
     {
+    	System.out.println("Goblin activates his power");
+    	/*
         System.out.println("Korrigan's power. Draw 2 random cards within your opponent hand");
 
         int value;
@@ -21,6 +23,7 @@ public class Korrigan extends Card {
             gamer.getHandCards().add(opponent.getHandCards().get(value));
             opponent.getHandCards().remove(value);
         }
+        */
     }
 
     public String toString()

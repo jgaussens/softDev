@@ -20,7 +20,7 @@ public class GamerIA extends Gamer {
     	this.getHandCards().remove(value);
     	//activate Power of the card???????
     
-    	return indice;
+    	return this.getBoardCards().size()-1;//Retourne la position de la nouvelle carte ajoutée sur le board
     }
     
     public int actionCHoice()

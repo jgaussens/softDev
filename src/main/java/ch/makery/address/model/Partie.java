@@ -95,8 +95,8 @@ public class Partie {
 				break;
 			case(1):
 				int index = gamer1.playCard(gamer1.cardCHoice());//Retourne l'indice de la carte joué
-				System.out.println(index);
-				gamer1.getBoardCards().get(index).power(gamer1, gamer2);//On applique les effets du sort sur les deux joueurs
+				System.out.println("aie");
+				gamer1.getBoardCards().get(index).power(gamer1, gamer2);//.power(gamer1, gamer2);//On applique les effets du sort sur les deux joueurs
 				round[1]--;//On passe à l'action suivante
 				round[0]++;//On passe au tour du joueur suivant - Round suivant
 				break;
@@ -115,7 +115,7 @@ public class Partie {
 				break;
 			case(1):
 				int index = gamer2.playCard(gamer2.cardCHoice());//Retourne l'indice de la carte joué
-				gamer1.getBoardCards().get(index).power(gamer2, gamer1);//On applique les effets du sort sur les deux joueurs
+				gamer2.getBoardCards().get(index).power(gamer2, gamer1);//On applique les effets du sort sur les deux joueurs
 				round[1]--;//On passe à l'action suivante
 				round[0]++;//On passe au tour du joueur suivant - Round suivant
 			}
