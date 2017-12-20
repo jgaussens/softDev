@@ -1,6 +1,6 @@
-package main.java;
+package model;
 
-
+import ch.makery.address.model.*;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -16,35 +16,42 @@ public class GamerTest {
     @Test
     public void playCard() throws Exception {
         Gamer g1=new Gamer();
-        Gamer g2=new Gamer();
+
 
         g1.getHandCards().add(korrigan);
         g1.getHandCards().add(elf);
 
-        g2.getHandCards().add(korrigan);
-        g2.getBoardCards().add(elf);
+        int nbefore=g1.getHandCards().size();
+        int bbefore=g1.getBoardCards().size();
 
         g1.playCard(1);
 
-        assertEquals(g1,g2);
+        int nafter=g1.getHandCards().size();
+        int bafter=g1.getBoardCards().size();
+
+        assertEquals(nafter,nbefore-1);
+        assertEquals(bafter,bbefore+1);
     }
 
     @Test
     public void drawCard() throws Exception {
         Gamer g1= new Gamer();
-        Gamer g2=new Gamer();
 
         g1.getHandCards().add(korrigan);
         g1.getBoard().getDraw().add(elf);
         g1.getBoard().getDraw().add(gnome);
 
-        g2.getHandCards().add(korrigan);
-        g2.getHandCards().add(elf);
-        g2.getBoard().getDraw().add(gnome);
+        int nbefore=g1.getHandCards().size();
+        int dbefore=g1.getBoard().getDraw().size();
 
         g1.drawCard(1);
 
-        assertEquals(g1,g2);
+        int nafter=g1.getHandCards().size();
+        int dafter=g1.getBoard().getDraw().size();
+
+
+        assertEquals(nafter,nbefore+1);
+        assertEquals(dafter,dbefore-1);
     }
 
 }

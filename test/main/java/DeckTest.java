@@ -1,11 +1,8 @@
-package main.java;
+package model;
 
 
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import ch.makery.address.model.*;
 import static org.junit.Assert.*;
 
 public class DeckTest {
@@ -22,15 +19,18 @@ public class DeckTest {
 
     @Test
     public void addCard() throws Exception {
-       Deck deck1= new Deck();
-       Deck deck2=new Deck();
-       deck1.getCards().add(elf);
-       deck2.getCards().add(elf);
-       deck2.getCards().add(gnome);
+        Deck deck1= new Deck();
 
-       deck1.addCard(gnome);
+        deck1.getCards().add(elf);
+        int nbefore=deck1.getCards().size();
 
-       assertEquals(deck1,deck2);
+        deck1.addCard(gnome);
+
+        int nafter=deck1.getCards().size();
+
+        assertEquals(nafter,nbefore+1);
+        //assertEquals(deck1.getCards().size()-1,gnome);
+
 
     }
 
