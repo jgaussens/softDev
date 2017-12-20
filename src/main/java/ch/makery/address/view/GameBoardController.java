@@ -209,13 +209,15 @@ public class GameBoardController implements Initializable{
 	Partie partie = new Partie();
 		
 	int countPlayerPoint =0;
-	int countPlayer2Point =0;
-	
+	int countPlayer2Point =0;	
 	int countdraw=0;
+	
+	int countLastTurn = 0;
+	boolean lastTurn = false;
 	
     public void initialize(URL location, ResourceBundle resources) {         	 
       
-    	partie.init(30);      	
+    	partie.init(10);      	
     	hand2.setDisable(true);
     	kingdome2.setDisable(true);
     	kingdom1.setDisable(true);
@@ -256,7 +258,7 @@ public void piocher(MouseEvent event) {
 	}
 	else 
 	{
-		hand2.setDisable(false);
+		 hand2.setDisable(false);
 		 hand1.setDisable(false);
 		 idDeck.setDisable(true);
 	}
@@ -271,7 +273,7 @@ public void poserCarteRoyaume(MouseEvent event ) {
 	 
 	 	RefreshGame();
 	 	
-	 	hand1.setDisable(true);	 	
+	 if(lastTurn ==false)	hand1.setDisable(true);	 	
 	 	kingdom1.setDisable(false);	 	
 	 	
     }
@@ -285,7 +287,7 @@ public void poserCarteRoyaume2(MouseEvent event ) {
  
  	RefreshGame();	
 	  		 
- 	hand2.setDisable(true);
+ 	 if(lastTurn ==false)	hand2.setDisable(true);
  	kingdome2.setDisable(false);
  	
 }
@@ -304,6 +306,8 @@ public void usePower(MouseEvent event ) {
  	 turnPlayer1.setText(null);
  	 turnPlayer2.setText("It's your turn");
  	 idDeck.setDisable(false);
+ 	 
+ 	 if(lastTurn == true) countLastTurn++;
  	
  	RefreshGame();	
 }
@@ -320,13 +324,13 @@ public void usePower2(MouseEvent event ) {
  	 turnPlayer1.setText("It's your turn");
  	idDeck.setDisable(false);
  	 
+ 	if(lastTurn == true) countLastTurn++;
  	
  	RefreshGame();	
 }
 	
 private void gameOver(final Stage primaryStage, String msg) {
-{
-	 
+{	 
              final Stage dialog = new Stage();
              dialog.initModality(Modality.APPLICATION_MODAL);
              dialog.initOwner(primaryStage);
@@ -334,8 +338,7 @@ private void gameOver(final Stage primaryStage, String msg) {
              dialogVbox.getChildren().add(new Text(msg));
              Scene dialogScene = new Scene(dialogVbox, 300, 200);
              dialog.setScene(dialogScene);
-             dialog.show();
-	 
+             dialog.show();	 
 }
 
 	 
@@ -430,7 +433,10 @@ public void RefreshGame()
 	 if(partie.board.getDraw().size() ==0)
 	 {
 		 if( partie.getGamer1().getHandCards().size() == 0 || partie.getGamer2().getHandCards().size() == 0)
-		 {
+		 {	
+			 lastTurn = true;
+			 if(countLastTurn ==2)
+			 {
 			 String msg= "";
 			 if(countPlayerPoint > countPlayer2Point) msg="Game Over, Gamer1 won";
 			 
@@ -439,6 +445,7 @@ public void RefreshGame()
 			 else msg = "Game Over,  game ended in a draw";
 			 
 			 gameOver(null, msg);
+			 }
 			 
 		 }
 	 }
